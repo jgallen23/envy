@@ -69,7 +69,7 @@ env-session() {
     docker rm -f "$session" &> /dev/null
     docker run -it \
       --name "$session" \
-      --net "container:$USER.$ENV" \
+      --net "host" \
       --env "HOSTNAME=$ENV" \
       --env "ENVY_SESSION=$session" \
       --env "ENVY_RANDOM=$RANDOM" \
