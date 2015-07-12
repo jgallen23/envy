@@ -36,6 +36,8 @@ env-docker() {
       --hostname "$ENVIRON" \
       --restart always \
       --volume "$HOST_ROOT/users/$USER/envs/$ENVIRON/run:/var/run" \
+      --label "ENVY_USER" "$USER" \
+      --label "ENVY_ENVIRON" "$ENVIRON" \
       progrium/dind > /dev/null
   fi
 }
